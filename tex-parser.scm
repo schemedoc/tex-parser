@@ -16,11 +16,10 @@
 (define (read-tex-thing)
   (cond ((read-char? #\\)
          (let ((command (read-char* tex-command-char?)))
-           (cond (command
-                  (cons (string->symbol command)
-                        (read-tex-command-args)))
-                 (else
-                  (read-char* not-tex-special-char?)))))
+           (if command
+               (cons (string->symbol command)
+                     (read-tex-command-args))
+               (read-char* not-tex-special-char?))))
         ((read-char? #\{)
          (cons 'math (read-tex-until #\})))
         (else (read-char* not-tex-special-char?))))
