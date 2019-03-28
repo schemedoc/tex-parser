@@ -30,11 +30,9 @@
     (if (read-char? sentinel)
         things
         (let ((thing (read-tex-thing)))
-          (cond ((not thing)
-                 things)
-                (else
-                 ;;(fprintf (current-error-port) "Read thing: ~a~%" thing)
-                 (loop (append things (list thing)))))))))
+          (if (not thing)
+              things
+              (loop (append things (list thing))))))))
 
 (define (read-tex-document)
   (read-tex-until eof-object?))

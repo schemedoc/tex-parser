@@ -4,12 +4,8 @@
         (else #f)))
 
 (define (read-char? k)
-  ;;(fprintf (current-error-port) "read-char? ~a~%" k)
   (and (match-char? k (peek-char))
-       (begin (let ((char (read-char)))
-                ;;(display char (current-error-port))
-                ;;(newline (current-error-port))
-                char))))
+       (begin (read-char))))
 
 (define (read-char* k)
   (let* ((first-char (read-char? k))
