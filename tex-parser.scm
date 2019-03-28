@@ -36,6 +36,5 @@
                  ;;(fprintf (current-error-port) "Read thing: ~a~%" thing)
                  (loop (append things (list thing)))))))))
 
-(define (parse-tex-from-port char-input-port)
-  (parameterize ((current-input-port char-input-port))
-    (read-tex-until eof-object?)))
+(define (read-tex-document)
+  (read-tex-until eof-object?))

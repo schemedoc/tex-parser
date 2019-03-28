@@ -1,5 +1,5 @@
 (define-library (tex-parser)
-  (export parse-tex-from-port)
+  (export read-tex-document)
   (import (scheme base)
           (scheme char)
           (scheme file)
