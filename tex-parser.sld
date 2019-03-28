@@ -1,4 +1,7 @@
 (define-library (tex-parser)
   (export parse-tex-from-port)
-  (import (scheme base) (scheme char) (scheme file))
+  (import (scheme base)
+          (scheme char)
+          (scheme file)
+          (read-char-if))
   (include "tex-parser.scm"))
